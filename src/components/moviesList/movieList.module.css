@@ -1,0 +1,9 @@
+.movieList{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    box-sizing: border-box;
+    padding: 2%;
+    background-color: #61dafb;
+}

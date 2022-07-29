@@ -1,0 +1,28 @@
+
+
+.MoviesListCardBlock{
+    width: 17%;
+    background-color: #282c34;
+    margin: 2% 0;
+    text-decoration: none;
+
+    transition: 200ms;
+}
+
+.MoviesListCardBlock:hover{
+    transform: scale(1.18);
+    cursor: pointer;
+}
+
+.MoviesListCardBlock>img{
+    width: 100%;
+
+}
+
+.titleMovie{
+    box-sizing: border-box;
+    padding: 3% 5% 10%;
+    font-weight: bold;
+    color: white;
+
+}
