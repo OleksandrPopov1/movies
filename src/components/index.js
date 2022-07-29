@@ -7,3 +7,5 @@ export * from './genre/Genre';
 export * from './genres/Genres';
 
 export * from './posterPreview/PosterPreview';
+
+export * from './movieInfo/MovieInfo';

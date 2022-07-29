@@ -4,7 +4,7 @@ import {genreService} from "../../services";
 const initialState = {
     genres: [],
     show: false,
-    errors: null
+    errors: null,
 };
 
 
@@ -32,7 +32,6 @@ const genreSlice = createSlice({
         builder
             .addCase(getAll.fulfilled, (state, action) => {
                 state.genres = action.payload.genres;
-
             })
             .addCase(getAll.rejected, (state, action) => {
                 state.errors = action.payload;

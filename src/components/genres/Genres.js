@@ -11,7 +11,7 @@ const Genres = () => {
 
     useEffect(() => {
         dispatch(genreActions.getAll());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div>

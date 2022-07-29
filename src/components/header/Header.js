@@ -24,6 +24,7 @@ const Header = () => {
                 <button onClick={showGenres}>Genre</button>
                 {show && <Genres/>}
             </div>
+            <input type="text"/>
         </div>
     );
 };

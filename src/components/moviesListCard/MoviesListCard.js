@@ -1,16 +1,17 @@
-import { NavLink} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 import css from './moviesListCard.module.css';
 import {PosterPreview} from "../posterPreview/PosterPreview";
 
 const MoviesListCard = ({movie}) => {
 
+    const navigate = useNavigate();
+
     return (
-        <NavLink to={'/movieDetails'} className={css.MoviesListCardBlock}>
+            <div className={css.MoviesListCardBlock} onClick={() => navigate('/movieDetails_'+movie.id)}>
                 <PosterPreview posterImage={movie.poster_path}/>
                 <div className={css.titleMovie}>{movie.title}</div>
-        </NavLink>
-
+            </div>
     );
 };
 

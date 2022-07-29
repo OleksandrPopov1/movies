@@ -8,7 +8,7 @@ import {MoviesListCard} from "../moviesListCard/MoviesListCard";
 
 const MoviesList = () => {
 
-    const {movies} = useSelector(state => state.movie);
+    const {movies, maxPage} = useSelector(state => state.movie);
     const dispatch = useDispatch();
 
     const [query, setQuery] = useSearchParams({page: '1'});
@@ -37,7 +37,7 @@ const MoviesList = () => {
             </div>
 
             <button disabled={!(actualPage - 1)} onClick={prevPage}>Prev</button>
-            <button disabled={actualPage + 1 > 500} onClick={nextPage}>Next</button>
+            <button disabled={actualPage > 499 || actualPage >= maxPage} onClick={nextPage}>Next</button>
         </div>
     );
 };

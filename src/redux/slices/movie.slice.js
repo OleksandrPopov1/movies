@@ -3,6 +3,7 @@ import {moviesService} from "../../services";
 
 const initialState = {
     movies: [],
+    maxPage: null
 };
 
 const getAll = createAsyncThunk(
@@ -29,6 +30,7 @@ const movieSlice = createSlice({
         builder
             .addCase(getAll.fulfilled, (state, action) => {
                 state.movies = action.payload.results;
+                state.maxPage = action.payload.total_pages;
             })
 });
 
