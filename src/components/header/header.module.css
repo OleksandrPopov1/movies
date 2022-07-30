@@ -1,0 +1,66 @@
+.headerBlock {
+    display: flex;
+    justify-content: space-between;
+
+    background-color: #083844;
+
+    box-sizing: border-box;
+    padding: 2% 5%;
+}
+
+.headerBlock > a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 300ms;
+}
+
+.headerBlock > div > button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: white;
+    background-color: transparent;
+    transition: 300ms;
+}
+
+
+.genresBlock {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    width: 21%;
+    z-index: 100;
+}
+
+.genresBlock > div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    background-color: #083c70;
+    box-sizing: border-box;
+    border-radius: 25px;
+
+    padding: 4%;
+    margin-top: 3%;
+}
+
+.genresBlock > div > div {
+    font-size: 12px;
+
+    width: 33.3%;
+    margin-top: 1%;
+
+    color: #c281ae;
+    transition: 200ms;
+
+}
+
+.genresBlock > div > div:hover,
+.headerBlock > div > button:hover,
+.headerBlock > a:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}

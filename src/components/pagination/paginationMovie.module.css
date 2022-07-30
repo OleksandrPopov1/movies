@@ -1,0 +1,7 @@
+.paginationBlock{
+    display: flex;
+    justify-content: center;
+
+    background-color: #083844;
+    padding: 3% 0 2%;
+}

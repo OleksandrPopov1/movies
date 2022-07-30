@@ -9,3 +9,7 @@ export * from './genres/Genres';
 export * from './posterPreview/PosterPreview';
 
 export * from './movieInfo/MovieInfo';
+
+export * from './genreBadge/GenreBadge';
+
+export * from './pagination/PaginationMovie';

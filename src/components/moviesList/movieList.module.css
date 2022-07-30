@@ -7,3 +7,11 @@
     padding: 2%;
     background-color: #61dafb;
 }
+
+.buttonPrev{
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: black;
+    background-color: white;
+}

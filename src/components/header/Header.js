@@ -1,6 +1,7 @@
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
+import css from './header.module.css';
 import {genreActions} from "../../redux";
 import {Genres} from "../genres/Genres";
 
@@ -18,11 +19,13 @@ const Header = () => {
     };
 
     return (
-        <div>
+        <div className={css.headerBlock}>
             <NavLink to={'allMovie'}>Movie</NavLink>
             <div>
                 <button onClick={showGenres}>Genre</button>
-                {show && <Genres/>}
+                <div className={css.genresBlock}>
+                    {show && <Genres/>}
+                </div>
             </div>
             <input type="text"/>
         </div>
