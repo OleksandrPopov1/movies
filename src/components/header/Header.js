@@ -21,13 +21,16 @@ const Header = () => {
     return (
         <div className={css.headerBlock}>
             <NavLink to={'allMovie'}>Movie</NavLink>
-            <div>
+            <div className={css.filtersBlock}>
                 <button onClick={showGenres}>Genre</button>
                 <div className={css.genresBlock}>
                     {show && <Genres/>}
                 </div>
             </div>
-            <input type="text"/>
+            <div>
+                <input type="text"/>
+                <button>Search</button>
+            </div>
         </div>
     );
 };

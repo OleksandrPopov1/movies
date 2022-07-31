@@ -8,7 +8,7 @@ const urls = {
     movies : `/discover/movie?${keyAPI}page=`,
     movieById: `/movie`,
     genres : `/genre/movie/list?${keyAPI}`,
-    searchMoviesByName : `/search/keyword?${keyAPI}query=`
+    searchMoviesByName : `/search/movie?${keyAPI}query=`
 }
 
 export {

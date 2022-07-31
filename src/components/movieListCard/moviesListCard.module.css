@@ -1,0 +1,41 @@
+.movieInfoImage {
+    position: absolute;
+    opacity: 0.7;
+
+}
+
+.movieInfoBlock {
+    position: relative;
+    color: #000000;
+    margin-left: 5%;
+}
+
+.movieInfoBlock > h2 {
+    font-size: 50px;
+    margin: 0;
+    box-sizing: border-box;
+    padding-top: 5%;
+}
+
+.companyImagesBlock{
+    display: flex;
+    align-items: center;
+
+}
+.companyImagesBlock>img{
+    display: block;
+    width: 3%;
+    height: 1%;
+    margin-right: 2%;
+}
+
+.movieInfoBlock > p {
+    margin-top: 2%;
+    line-height: 21px;
+    width: 40%;
+    font-size: 20px;
+}
+
+.movieInfoBlock> span{
+    margin-right: 1%;
+}

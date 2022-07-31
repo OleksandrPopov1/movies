@@ -51,7 +51,7 @@ const PaginationMovie = ({actualPage, setQuery, prevPage, nextPage}) => {
                 {(actualPage + 3 <= 500) && <Pagination.Ellipsis disabled={true}/>}
                 {(actualPage + 10 <= 500) && <Pagination.Item onClick={nextTenPage}>{actualPage + 10}</Pagination.Item>}
                 {(actualPage + 1 <= 500) && <Pagination.Next onClick={nextPage}/>}
-                {(actualPage + 3 <= 500) && <Pagination.Last on onClick={lastPage}/>}
+                {(actualPage + 3 <= 500) && <Pagination.Last onClick={lastPage}/>}
             </Pagination>
         </div>
     );

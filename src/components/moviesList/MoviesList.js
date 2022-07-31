@@ -4,19 +4,19 @@ import {useSearchParams} from "react-router-dom";
 
 import css from './movieList.module.css';
 import {movieActions} from "../../redux";
-import {MoviesListCard} from "../moviesListCard/MoviesListCard";
+import {MovieInfo} from "../movieInfo/MovieInfo";
 import {PaginationMovie} from "../pagination/PaginationMovie";
 
 const MoviesList = () => {
 
-    const {movies} = useSelector(state => state.movie);
+    const {movies, filterGenre} = useSelector(state => state.movie);
     const dispatch = useDispatch();
 
     const [query, setQuery] = useSearchParams({page: '1'});
 
     useEffect(() => {
         dispatch(movieActions.getAll({page: query.get('page')}))
-    }, [dispatch, query]);
+    }, [dispatch, query, filterGenre]);
 
 
     const actualPage = +query.get('page');
@@ -34,7 +34,8 @@ const MoviesList = () => {
     return (
         <div>
             <div className={css.movieList}>
-                {movies.map(movie => <MoviesListCard key={movie.id} movie={movie}/>)}
+                {movies.map(movie => <MovieInfo key={movie.id} movie={movie}/>)}
+
             </div>
 
             {/*<button disabled={!(actualPage - 1)} onClick={prevPage} className={css.buttonPrev}>*/}
@@ -45,7 +46,6 @@ const MoviesList = () => {
             {/*</button>*/}
 
             <PaginationMovie prevPage={prevPage} nextPage={nextPage} actualPage={actualPage} setQuery={setQuery}/>
-
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import {MovieInfo} from "../components";
+import {MoviesListCard} from "../components";
 import {useParams} from "react-router-dom";
 
 const MovieDetailsPage = () => {
@@ -7,7 +7,7 @@ const MovieDetailsPage = () => {
 
     return (
         <div>
-            <MovieInfo movieId={movieId}/>
+            <MoviesListCard movieId={movieId}/>
         </div>
     );
 };

@@ -1,10 +1,12 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {moviesService} from "../../services";
+import {moviesSearchService, moviesService} from "../../services";
 
 const initialState = {
     movies: [],
     maxPage: null,
     oneMovie: null,
+    copyMovie: [],
+    filterGenre: null,
     errors: null
 };
 
@@ -32,25 +34,46 @@ const getOne = createAsyncThunk(
     }
 );
 
+const getByName = createAsyncThunk(
+    'movieSlice/getByName',
+    async ({name}, {rejectWithValue}) => {
+        try {
+            const {data} = await moviesSearchService.searchByName(name);
+            return data;
+        } catch (e) {
+            return rejectWithValue(e.response.data);
+        }
+    }
+);
+
 const movieSlice = createSlice({
     name: 'movieSlice',
     initialState,
     reducers: {
         filterByGenre: (state, action) => {
-            console.log(action.payload);
-            state.movies = action.payload
+            state.filterGenre = action.payload.id;
         },
     },
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
                 state.movies = action.payload.results;
-                state.maxPage = action.payload.total_pages;
+
+                if(state.filterGenre){
+                    state.movies = state.movies.filter(movie => movie.genre_ids.find(value => value === state.filterGenre))
+                }
+                // state.maxPage = action.payload.total_pages;
                 state.oneMovie = null;
                 state.errors = null;
             })
             .addCase(getOne.fulfilled, (state, action) => {
                 state.oneMovie = action.payload;
+            })
+            .addCase(getByName.fulfilled, (state, action) => {
+                state.movies = action.payload.results;
+                state.maxPage = action.payload.total_pages;
+                state.oneMovie = null;
+                state.errors = null;
             })
             .addDefaultCase((state, action) => {
                 const [type] = action.type.split('/').splice(-1);
@@ -68,6 +91,7 @@ const {reducer: movieReducer, actions:{filterByGenre}} = movieSlice;
 const movieActions = {
     getAll,
     getOne,
+    getByName,
     filterByGenre
 };
 

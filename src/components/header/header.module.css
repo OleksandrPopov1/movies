@@ -16,7 +16,7 @@
     transition: 300ms;
 }
 
-.headerBlock > div > button {
+.headerBlock > .filtersBlock > button {
     padding: 0;
     border: none;
     font: inherit;
@@ -34,7 +34,7 @@
     z-index: 100;
 }
 
-.genresBlock > div {
+.genresBlock > .filtersBlock {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -47,7 +47,7 @@
     margin-top: 3%;
 }
 
-.genresBlock > div > div {
+.genresBlock > .filtersBlock > div {
     font-size: 12px;
 
     width: 33.3%;
@@ -58,8 +58,8 @@
 
 }
 
-.genresBlock > div > div:hover,
-.headerBlock > div > button:hover,
+.genresBlock > .filtersBlock > div:hover,
+.headerBlock > .filtersBlock > button:hover,
 .headerBlock > a:hover{
     transform: scale(1.2);
     cursor: pointer;

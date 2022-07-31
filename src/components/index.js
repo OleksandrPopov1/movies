@@ -1,6 +1,6 @@
 export * from './header/Header';
 
-export * from './moviesListCard/MoviesListCard';
+export * from './movieInfo/MovieInfo';
 export * from './moviesList/MoviesList';
 
 export * from './genre/Genre';
@@ -8,8 +8,10 @@ export * from './genres/Genres';
 
 export * from './posterPreview/PosterPreview';
 
-export * from './movieInfo/MovieInfo';
+export * from './movieListCard/MoviesListCard';
 
 export * from './genreBadge/GenreBadge';
 
 export * from './pagination/PaginationMovie';
+
+export * from './starsRating/StarsRating';
