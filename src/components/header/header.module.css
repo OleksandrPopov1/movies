@@ -5,7 +5,7 @@
     background-color: #083844;
 
     box-sizing: border-box;
-    padding: 2% 5%;
+    padding: 2% 5% 1%;
 }
 
 .headerBlock > a {
@@ -16,7 +16,8 @@
     transition: 300ms;
 }
 
-.headerBlock > .filtersBlock > button {
+.headerBlock > .filtersBlock > button,
+.searchBlock> button{
     padding: 0;
     border: none;
     font: inherit;
@@ -30,11 +31,12 @@
     display: flex;
     flex-wrap: wrap;
     position: absolute;
+    right: 43%;
     width: 21%;
-    z-index: 100;
+    z-index: 5;
 }
 
-.genresBlock > .filtersBlock {
+.genresBlock > div {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -47,7 +49,7 @@
     margin-top: 3%;
 }
 
-.genresBlock > .filtersBlock > div {
+.genresBlock > div > div {
     font-size: 12px;
 
     width: 33.3%;
@@ -58,9 +60,29 @@
 
 }
 
-.genresBlock > .filtersBlock > div:hover,
+
 .headerBlock > .filtersBlock > button:hover,
 .headerBlock > a:hover{
     transform: scale(1.2);
     cursor: pointer;
+}
+
+.genresBlock > div > div:hover{
+    color: red;
+    cursor: pointer;
+}
+
+.searchBlock img{
+
+    width: 20px;
+}
+.searchBlock> button{
+    position: relative;
+    right: 11%;
+    bottom: 5%;
+}
+
+.rightHeader{
+    display: flex;
+    /*width: 20%;*/
 }

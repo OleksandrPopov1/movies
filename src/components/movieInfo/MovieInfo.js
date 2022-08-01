@@ -13,7 +13,7 @@ const MovieInfo = ({movie}) => {
             <div className={css.MoviesListCardBlock} onClick={() => navigate('/movieDetails_'+movie.id)}>
                 <PosterPreview posterImage={movie.poster_path}/>
                 <div className={css.titleMovie}>{movie.title}</div>
-                <StarsRating movieRating={movie.vote_average} allowHover={false} size={15}/>
+                <StarsRating movieRating={movie.vote_average} allowHover={false} size={15} vote={false}/>
             </div>
     );
 };

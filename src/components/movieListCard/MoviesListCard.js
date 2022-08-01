@@ -3,8 +3,9 @@ import {useEffect, useState} from "react";
 
 import css from './moviesListCard.module.css';
 import {movieActions} from "../../redux";
-import {posterURL} from "../../constants";
+import {backgroundURL, noImageURL, posterURL} from "../../constants";
 import {GenreBadge} from "../genreBadge/GenreBadge";
+import StarsRating from "../starsRating/StarsRating";
 
 const MoviesListCard = ({movieId}) => {
 
@@ -32,7 +33,7 @@ const MoviesListCard = ({movieId}) => {
             {oneMovie &&
                 <div>
                     <div className={css.movieInfoImage} style={{
-                        backgroundImage: `url(${posterURL + image})`,
+                        backgroundImage: `url(${image? backgroundURL + image : noImageURL})`,
                         backgroundPosition: "center",
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",
@@ -47,6 +48,12 @@ const MoviesListCard = ({movieId}) => {
 
                         <p>{oneMovie.overview}</p>
 
+                        <div>
+                            Vote average: {oneMovie.vote_average} <br/>
+                            Vote count: {oneMovie.vote_count}
+                            <StarsRating size={20} allowHover={true} movieRating={oneMovie.vote_average} vote={true}/>
+                        </div>
+
                         <div className={css.companyImagesBlock}>{
                             oneMovie.production_companies.map(company => {
                                 const image = posterURL + company.logo_path;
@@ -54,6 +61,7 @@ const MoviesListCard = ({movieId}) => {
                             })}
                         </div>
                     </div>
+
                 </div>
             }
         </div>

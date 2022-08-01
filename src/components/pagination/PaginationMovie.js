@@ -1,8 +1,21 @@
 import {Pagination} from "react-bootstrap";
 
 import css from './paginationMovie.module.css';
+import {useSelector} from "react-redux";
 
-const PaginationMovie = ({actualPage, setQuery, prevPage, nextPage}) => {
+const PaginationMovie = ({actualPage, setQuery}) => {
+
+    const {maxPage} = useSelector(state => state.movie);
+
+    const prevPage = () => {
+        const page = actualPage - 1;
+        setQuery({page: `${page}`})
+    };
+
+    const nextPage = () => {
+        const page = actualPage + 1;
+        setQuery({page: `${page}`})
+    };
 
     const nextTenPage = () => {
         const page = actualPage + 10;
@@ -30,8 +43,7 @@ const PaginationMovie = ({actualPage, setQuery, prevPage, nextPage}) => {
     };
 
     const lastPage = () => {
-        const page = 500;
-        setQuery({page: `${page}`})
+        setQuery({page: `${maxPage}`})
     };
 
     return (
@@ -45,13 +57,13 @@ const PaginationMovie = ({actualPage, setQuery, prevPage, nextPage}) => {
                 {(actualPage - 2 >= 1) && <Pagination.Item onClick={prevTwoPage}>{actualPage - 2}</Pagination.Item>}
                 {(actualPage - 1 >= 1) && <Pagination.Item onClick={prevPage}>{actualPage - 1}</Pagination.Item>}
                 <Pagination.Item active>{actualPage}</Pagination.Item>
-                {(actualPage + 1 <= 500) && <Pagination.Item onClick={nextPage}>{actualPage + 1}</Pagination.Item>}
-                {(actualPage + 2 <= 500) && <Pagination.Item onClick={nextTwoPage}>{actualPage + 2}</Pagination.Item>}
+                {(actualPage + 1 <= maxPage) && <Pagination.Item onClick={nextPage}>{actualPage + 1}</Pagination.Item>}
+                {(actualPage + 2 <= maxPage) && <Pagination.Item onClick={nextTwoPage}>{actualPage + 2}</Pagination.Item>}
 
-                {(actualPage + 3 <= 500) && <Pagination.Ellipsis disabled={true}/>}
-                {(actualPage + 10 <= 500) && <Pagination.Item onClick={nextTenPage}>{actualPage + 10}</Pagination.Item>}
-                {(actualPage + 1 <= 500) && <Pagination.Next onClick={nextPage}/>}
-                {(actualPage + 3 <= 500) && <Pagination.Last onClick={lastPage}/>}
+                {(actualPage + 3 <= maxPage) && <Pagination.Ellipsis disabled={true}/>}
+                {(actualPage + 10 <= maxPage) && <Pagination.Item onClick={nextTenPage}>{actualPage + 10}</Pagination.Item>}
+                {(actualPage + 1 <= maxPage) && <Pagination.Next onClick={nextPage}/>}
+                {(actualPage + 3 <= maxPage) && <Pagination.Last onClick={lastPage}/>}
             </Pagination>
         </div>
     );

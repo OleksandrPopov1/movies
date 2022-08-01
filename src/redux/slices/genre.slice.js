@@ -3,7 +3,6 @@ import {genreService} from "../../services";
 
 const initialState = {
     genres: [],
-    show: false,
     errors: null,
 };
 
@@ -23,11 +22,7 @@ const getAll = createAsyncThunk(
 const genreSlice = createSlice({
     name: 'genreSlice',
     initialState,
-    reducers: {
-        setShow: (state, action) => {
-            state.show = action.payload;
-        }
-    },
+    reducers: {},
     extraReducers: (builder) =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
@@ -38,11 +33,10 @@ const genreSlice = createSlice({
             })
 });
 
-const {reducer: genreReducer, actions: {setShow}} = genreSlice;
+const {reducer: genreReducer} = genreSlice;
 
 const genreActions = {
-    getAll,
-    setShow
+    getAll
 };
 
 export {

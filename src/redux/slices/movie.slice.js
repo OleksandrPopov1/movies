@@ -1,11 +1,12 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+
 import {moviesSearchService, moviesService} from "../../services";
 
 const initialState = {
     movies: [],
     maxPage: null,
     oneMovie: null,
-    copyMovie: [],
+    searchMovie : null,
     filterGenre: null,
     errors: null
 };
@@ -36,9 +37,9 @@ const getOne = createAsyncThunk(
 
 const getByName = createAsyncThunk(
     'movieSlice/getByName',
-    async ({name}, {rejectWithValue}) => {
+    async ({name, page}, {rejectWithValue}) => {
         try {
-            const {data} = await moviesSearchService.searchByName(name);
+            const {data} = await moviesSearchService.searchByName(name,page);
             return data;
         } catch (e) {
             return rejectWithValue(e.response.data);
@@ -53,16 +54,26 @@ const movieSlice = createSlice({
         filterByGenre: (state, action) => {
             state.filterGenre = action.payload.id;
         },
+        searchName: (state, action) => {
+            state.searchMovie = action.payload
+        }
     },
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
+                state.searchMovie = null;
                 state.movies = action.payload.results;
 
                 if(state.filterGenre){
                     state.movies = state.movies.filter(movie => movie.genre_ids.find(value => value === state.filterGenre))
                 }
-                // state.maxPage = action.payload.total_pages;
+
+                if (action.payload.total_pages < 500) {
+                    state.maxPage = action.payload.total_pages;
+                } else {
+                    state.maxPage = 500;
+                }
+
                 state.oneMovie = null;
                 state.errors = null;
             })
@@ -71,6 +82,12 @@ const movieSlice = createSlice({
             })
             .addCase(getByName.fulfilled, (state, action) => {
                 state.movies = action.payload.results;
+
+                if(state.filterGenre){
+                    console.log(state.filterGenre)
+                    state.movies = state.movies.filter(movie => movie.genre_ids.find(value => value === state.filterGenre))
+                }
+
                 state.maxPage = action.payload.total_pages;
                 state.oneMovie = null;
                 state.errors = null;
@@ -86,13 +103,14 @@ const movieSlice = createSlice({
             })
 });
 
-const {reducer: movieReducer, actions:{filterByGenre}} = movieSlice;
+const {reducer: movieReducer, actions:{filterByGenre,searchName}} = movieSlice;
 
 const movieActions = {
     getAll,
     getOne,
     getByName,
-    filterByGenre
+    filterByGenre,
+    searchName
 };
 
 export {

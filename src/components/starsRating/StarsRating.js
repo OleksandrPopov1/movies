@@ -1,13 +1,14 @@
-import React, {useState} from 'react'
-import {Rating} from 'react-simple-star-rating'
+import React, {useState} from 'react';
+import {Rating} from 'react-simple-star-rating';
 
-export default function StarsRating({movieRating, allowHover , size}) {
-    const [rating, setRating] = useState(movieRating * 10) // initial rating value
+export default function StarsRating({movieRating, allowHover, size, vote}) {
+    const [rating, setRating] = useState(movieRating * 10);
 
-    // Catch Rating value
     const handleRating = (rate) => {
-        setRating(rate)
-        // other logic
+        if (vote) {
+            console.log(1)
+        }
+        setRating(rate);
     }
 
     return (
@@ -16,7 +17,7 @@ export default function StarsRating({movieRating, allowHover , size}) {
                     ratingValue={rating}
                     allowHover={allowHover}
                     size={size}
-                /* Available Props */ />
+            />
         </div>
     )
 }

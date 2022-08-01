@@ -15,3 +15,5 @@ export * from './genreBadge/GenreBadge';
 export * from './pagination/PaginationMovie';
 
 export * from './starsRating/StarsRating';
+
+export * from './userInfo/UserInfo';

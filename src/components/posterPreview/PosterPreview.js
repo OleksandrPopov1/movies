@@ -1,11 +1,9 @@
-import {posterURL} from "../../constants";
+import {noImageURL, posterURL} from "../../constants";
 
 const PosterPreview = ({posterImage}) => {
 
-    const image = posterURL + posterImage;
-
     return (
-        <img src={image} alt="poster"/>
+        <img src={posterImage ? (posterURL + posterImage) : noImageURL} alt="poster"/>
     );
 };
 

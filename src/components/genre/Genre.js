@@ -4,6 +4,7 @@ import {movieActions} from "../../redux";
 const Genre = ({genre, id}) => {
 
     const {filterGenre} = useSelector(state => state.movie);
+
     const dispatch = useDispatch();
 
     const filter = () => {
@@ -15,7 +16,7 @@ const Genre = ({genre, id}) => {
     };
 
     return (
-        <div onClick={filter} className='titleGenreBlock'>
+        <div onClick={filter} className={'titleGenreBlock'}>
             {genre.name}
         </div>
     );
