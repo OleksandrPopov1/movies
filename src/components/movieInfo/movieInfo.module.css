@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 17%;
-    background-color: #282c34;
+    background-color: #f8f7f7;
     margin: 2% 0;
     text-decoration: none;
 
@@ -18,13 +18,12 @@
 
 .MoviesListCardBlock>img{
     width: 100%;
-
 }
 
 .titleMovie{
     box-sizing: border-box;
     padding: 3% 5% 10%;
     font-weight: bold;
-    color: white;
+    color: black;
 
 }

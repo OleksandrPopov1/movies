@@ -9,7 +9,7 @@ import {PaginationMovie} from "../pagination/PaginationMovie";
 
 const MoviesList = () => {
 
-    const {movies, filterGenre, searchMovie} = useSelector(state => state.movie);
+    const {movies, genreId, searchMovie, errors} = useSelector(state => state.movie);
     const dispatch = useDispatch();
 
     const [query, setQuery] = useSearchParams({page: '1'});
@@ -18,9 +18,9 @@ const MoviesList = () => {
         if (searchMovie) {
             dispatch(movieActions.getByName({name: searchMovie,page: query.get('page')}));
         } else {
-            dispatch(movieActions.getAll({page: query.get('page')}));
+            dispatch(movieActions.getAll({page: query.get('page'), withGenres: `${genreId}`}));
         }
-    }, [dispatch, query, filterGenre, searchMovie]);
+    }, [dispatch, query, genreId, searchMovie]);
 
 
     const actualPage = +query.get('page');
@@ -28,6 +28,7 @@ const MoviesList = () => {
     return (
         <div>
             <div className={css.movieList}>
+                {errors}
                 {movies.map(movie => <MovieInfo key={movie.id} movie={movie}/>)}
             </div>
 
@@ -39,3 +40,4 @@ const MoviesList = () => {
 export {
     MoviesList
 };
+

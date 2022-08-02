@@ -6,16 +6,16 @@ const initialState = {
     movies: [],
     maxPage: null,
     oneMovie: null,
-    searchMovie : null,
-    filterGenre: null,
+    searchMovie: null,
+    genreId: '',
     errors: null
 };
 
 const getAll = createAsyncThunk(
     'movieSlice/getAll',
-    async ({page}, {rejectWithValue}) => {
+    async ({page, withGenres}, {rejectWithValue}) => {
         try {
-            const {data} = await moviesService.getAll(page);
+            const {data} = await moviesService.getAll(page, withGenres);
             return data;
         } catch (e) {
             return rejectWithValue(e.response.data);
@@ -39,7 +39,7 @@ const getByName = createAsyncThunk(
     'movieSlice/getByName',
     async ({name, page}, {rejectWithValue}) => {
         try {
-            const {data} = await moviesSearchService.searchByName(name,page);
+            const {data} = await moviesSearchService.searchByName(name, page);
             return data;
         } catch (e) {
             return rejectWithValue(e.response.data);
@@ -52,7 +52,7 @@ const movieSlice = createSlice({
     initialState,
     reducers: {
         filterByGenre: (state, action) => {
-            state.filterGenre = action.payload.id;
+            state.genreId = action.payload.id;
         },
         searchName: (state, action) => {
             state.searchMovie = action.payload
@@ -64,7 +64,7 @@ const movieSlice = createSlice({
                 state.searchMovie = null;
                 state.movies = action.payload.results;
 
-                if(state.filterGenre){
+                if (state.filterGenre) {
                     state.movies = state.movies.filter(movie => movie.genre_ids.find(value => value === state.filterGenre))
                 }
 
@@ -83,7 +83,7 @@ const movieSlice = createSlice({
             .addCase(getByName.fulfilled, (state, action) => {
                 state.movies = action.payload.results;
 
-                if(state.filterGenre){
+                if (state.filterGenre) {
                     console.log(state.filterGenre)
                     state.movies = state.movies.filter(movie => movie.genre_ids.find(value => value === state.filterGenre))
                 }
@@ -103,7 +103,7 @@ const movieSlice = createSlice({
             })
 });
 
-const {reducer: movieReducer, actions:{filterByGenre,searchName}} = movieSlice;
+const {reducer: movieReducer, actions: {filterByGenre, searchName}} = movieSlice;
 
 const movieActions = {
     getAll,

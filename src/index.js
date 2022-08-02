@@ -6,6 +6,7 @@ import {Provider} from "react-redux";
 import './index.css';
 import App from './App';
 import {setupStore} from "./redux";
+import {ThemeContextWrapper} from "./theme";
 
 const store = setupStore();
 
@@ -13,9 +14,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
         <BrowserRouter>
+            <ThemeContextWrapper>
                 <App/>
+            </ThemeContextWrapper>
         </BrowserRouter>
     </Provider>
-
 );
 

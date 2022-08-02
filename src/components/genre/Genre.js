@@ -1,22 +1,35 @@
 import {useDispatch, useSelector} from "react-redux";
+import {useState} from "react";
+
 import {movieActions} from "../../redux";
 
 const Genre = ({genre, id}) => {
 
-    const {filterGenre} = useSelector(state => state.movie);
+    const {genreId} = useSelector(state => state.movie);
+    const [genreOn, setGenreOn] = useState('');
 
     const dispatch = useDispatch();
 
     const filter = () => {
-        if (filterGenre === id) {
-            dispatch(movieActions.filterByGenre({id: null}));
+        const strId = id.toString();
+        const arrGenre = genreId.split(',');
+        const findIndex = arrGenre.indexOf(strId);
+
+        if (findIndex === -1) {
+            arrGenre.push(strId);
+            dispatch(movieActions.filterByGenre({id: arrGenre.join(',')}));
+
+            setGenreOn('red')
         } else {
-            dispatch(movieActions.filterByGenre({id: id}));
+            arrGenre.splice(findIndex, 1)
+            dispatch(movieActions.filterByGenre({id: arrGenre.join(',')}));
+            setGenreOn('');
         }
     };
 
+
     return (
-        <div onClick={filter} className={'titleGenreBlock'}>
+        <div id={id} onClick={filter} style={{color: genreOn}}>
             {genre.name}
         </div>
     );

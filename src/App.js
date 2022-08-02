@@ -1,7 +1,9 @@
 import {Routes, Route, Navigate} from "react-router-dom";
 
+import './App.css';
 import {MainLayout} from "./layouts/MainLayout";
 import {AllMoviePage, MovieDetailsPage} from "./pages";
+
 
 const App = () => {
     return (

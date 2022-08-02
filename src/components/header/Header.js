@@ -6,18 +6,26 @@ import css from './header.module.css';
 import {movieActions} from "../../redux";
 import {Genres} from "../genres/Genres";
 import {UserInfo} from "../userInfo/UserInfo";
+import {ThemeContext} from "../../theme";
+import {SwitchButtonCustom} from "../switchButtonCustom/SwitchButtonCustom";
 
 const Header = () => {
 
     const dispatch = useDispatch();
 
     const [inputValue, setInputValue] = useState('');
-    const [showGenre, setShowGenre] = useState(false);
+    const [showGenre, setShowGenre] = useState('none');
+
+
 
     const navigate = useNavigate();
 
     const showGenres = () => {
-        setShowGenre(!showGenre);
+        if (showGenre === 'none') {
+            setShowGenre('flex');
+        } else {
+            setShowGenre('none');
+        }
     };
 
     const change = e => {
@@ -25,26 +33,33 @@ const Header = () => {
     };
 
     const search = () => {
-        dispatch(movieActions.searchName(inputValue));
-        dispatch(movieActions.getByName({name: inputValue}));
-        navigate('/allMovie');
-        setInputValue('');
+        if (inputValue) {
+            dispatch(movieActions.searchName(inputValue));
+            dispatch(movieActions.getByName({name: inputValue}));
+            navigate('/allMovie');
+            setInputValue('');
+        }
     };
 
-    const keyPress = e =>{
-        if(e.code === 'Enter') {
+    const keyPress = e => {
+        if (e.code === 'Enter') {
             search();
         }
     }
 
     return (
         <div className={css.headerBlock}>
-            <NavLink to={'allMovie'} onClick={window.location.reload}>All Movie</NavLink>
+            <div><NavLink to={'allMovie'} onClick={window.location.reload}>All Movie</NavLink>
+
+                <ThemeContext.Consumer>
+                    {({changeTheme}) => (<SwitchButtonCustom changeTheme={changeTheme}/>)}
+                </ThemeContext.Consumer></div>
+
 
             <div className={css.filtersBlock}>
                 <button onClick={showGenres}>Genre</button>
-                <div className={css.genresBlock}>
-                    {showGenre && <Genres/>}
+                <div className={css.genresBlock} style={{display: showGenre}}>
+                    {<Genres/>}
                 </div>
             </div>
 

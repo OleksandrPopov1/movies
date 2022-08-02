@@ -1,3 +1,7 @@
+.movieListBlock{
+
+}
+
 .movieList{
     display: flex;
     justify-content: space-evenly;

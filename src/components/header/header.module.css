@@ -8,7 +8,7 @@
     padding: 2% 5% 1%;
 }
 
-.headerBlock > a {
+.headerBlock  a {
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -28,11 +28,11 @@
 
 
 .genresBlock {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     position: absolute;
     right: 43%;
-    width: 21%;
+    width: 25%;
     z-index: 5;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .genresBlock > div > div {
-    font-size: 12px;
+    font-size: 14px;
 
     width: 33.3%;
     margin-top: 1%;
@@ -62,7 +62,7 @@
 
 
 .headerBlock > .filtersBlock > button:hover,
-.headerBlock > a:hover{
+.headerBlock  a:hover{
     transform: scale(1.2);
     cursor: pointer;
 }
@@ -84,5 +84,6 @@
 
 .rightHeader{
     display: flex;
-    /*width: 20%;*/
 }
+
+

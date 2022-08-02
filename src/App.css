@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+
+body,
+.white-content .header_headerBlock__z6EWC,
+.white-content .paginationMovie_paginationBlock__UYsyd,
+.white-content .header_genresBlock__AETiC div,
+.white-content .movieInfo_MoviesListCardBlock__1as5p,
+.white-content .movieInfo_titleMovie__vjqlW{
+  background: black;
+  color: white;
+}
+
+.white-content .movieList_movieList__A9msP{
+  background: #363131;
+}
+
+.white-content .userInfo_userSettingsBlock__2SwOF{
+  background: #110e0e;
+}
+
+

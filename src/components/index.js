@@ -17,3 +17,5 @@ export * from './pagination/PaginationMovie';
 export * from './starsRating/StarsRating';
 
 export * from './userInfo/UserInfo';
+
+export * from './switchButtonCustom/SwitchButtonCustom';
