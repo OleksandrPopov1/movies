@@ -8,7 +8,8 @@ const urls = {
     movies : `/discover/movie`,
     movieById: `/movie`,
     genres : `/genre/movie/list`,
-    searchMoviesByName : `/search/movie`
+    searchMoviesByName : `/search/movie`,
+    countries: '/configuration/countries'
 }
 
 export {

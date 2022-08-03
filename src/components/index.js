@@ -19,3 +19,8 @@ export * from './starsRating/StarsRating';
 export * from './userInfo/UserInfo';
 
 export * from './switchButtonCustom/SwitchButtonCustom';
+export * from './sliderCustom/SliderCustom';
+
+export * from './moviesSearchList/MoviesSearchList';
+
+export * from './countries/Countries';

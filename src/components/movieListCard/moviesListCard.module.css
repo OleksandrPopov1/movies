@@ -41,7 +41,7 @@
 .companyImagesBlock {
     display: flex;
     align-items: center;
-
+    margin-top: 1%;
 }
 
 .companyImagesBlock > img {

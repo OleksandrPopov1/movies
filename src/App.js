@@ -2,7 +2,8 @@ import {Routes, Route, Navigate} from "react-router-dom";
 
 import './App.css';
 import {MainLayout} from "./layouts/MainLayout";
-import {AllMoviePage, MovieDetailsPage} from "./pages";
+import {MoviePage, MovieDetailsPage} from "./pages";
+import {SearchPage} from "./pages/SearchPage";
 
 
 const App = () => {
@@ -11,8 +12,9 @@ const App = () => {
             <Routes>
                 <Route path={''} element={<MainLayout/>}>
                     <Route index element={<Navigate to={'allMovie'}/>}/>
-                    <Route path={'allMovie'} element={<AllMoviePage/>}/>
+                    <Route path={'allMovie'} element={<MoviePage/>}/>
                     <Route path={'movieDetails:movieId'} element={<MovieDetailsPage/>}/>
+                    <Route path={'movieSearch:query'} element={<SearchPage/>}/>
                 </Route>
             </Routes>
         </div>

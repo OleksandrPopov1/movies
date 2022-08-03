@@ -1,6 +1,8 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
+import Dropdown from 'react-bootstrap/Dropdown';
 
+import css from './genres.module.css';
 import {genreActions} from "../../redux";
 import {Genre} from "../genre/Genre";
 
@@ -14,9 +16,15 @@ const Genres = () => {
     }, [dispatch]);
 
     return (
-        <div>
-            {genres.map(genre => <Genre key={genre.id} genre={genre} id={genre.id}/>)}
-        </div>
+        <Dropdown autoClose={'outside'}>
+            <Dropdown.Toggle variant="info" id="dropdown-basic" >
+                Genre
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu className={css.genreMenu}>
+                {genres.map(genre => <Genre key={genre.id} genre={genre} id={genre.id}/>)}
+            </Dropdown.Menu>
+        </Dropdown>
     );
 };
 

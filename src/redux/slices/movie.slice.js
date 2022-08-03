@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
-import {moviesSearchService, moviesService} from "../../services";
+import { moviesService} from "../../services";
 
 const initialState = {
     movies: [],
@@ -8,14 +8,15 @@ const initialState = {
     oneMovie: null,
     searchMovie: null,
     genreId: '',
+    country: '',
     errors: null
 };
 
 const getAll = createAsyncThunk(
     'movieSlice/getAll',
-    async ({page, withGenres}, {rejectWithValue}) => {
+    async ({page, withGenres, region}, {rejectWithValue}) => {
         try {
-            const {data} = await moviesService.getAll(page, withGenres);
+            const {data} = await moviesService.getAll(page, withGenres, region);
             return data;
         } catch (e) {
             return rejectWithValue(e.response.data);
@@ -39,7 +40,7 @@ const getByName = createAsyncThunk(
     'movieSlice/getByName',
     async ({name, page}, {rejectWithValue}) => {
         try {
-            const {data} = await moviesSearchService.searchByName(name, page);
+            const {data} = await moviesService.searchByName(name, page);
             return data;
         } catch (e) {
             return rejectWithValue(e.response.data);
@@ -55,18 +56,16 @@ const movieSlice = createSlice({
             state.genreId = action.payload.id;
         },
         searchName: (state, action) => {
-            state.searchMovie = action.payload
+            state.searchMovie = action.payload;
+        },
+        setCountry: (state, action) => {
+            state.country = action.payload;
         }
     },
     extraReducers: builder =>
         builder
             .addCase(getAll.fulfilled, (state, action) => {
-                state.searchMovie = null;
                 state.movies = action.payload.results;
-
-                if (state.filterGenre) {
-                    state.movies = state.movies.filter(movie => movie.genre_ids.find(value => value === state.filterGenre))
-                }
 
                 if (action.payload.total_pages < 500) {
                     state.maxPage = action.payload.total_pages;
@@ -74,43 +73,37 @@ const movieSlice = createSlice({
                     state.maxPage = 500;
                 }
 
-                state.oneMovie = null;
                 state.errors = null;
             })
             .addCase(getOne.fulfilled, (state, action) => {
                 state.oneMovie = action.payload;
+                state.errors = null;
             })
             .addCase(getByName.fulfilled, (state, action) => {
                 state.movies = action.payload.results;
-
-                if (state.filterGenre) {
-                    console.log(state.filterGenre)
-                    state.movies = state.movies.filter(movie => movie.genre_ids.find(value => value === state.filterGenre))
-                }
-
                 state.maxPage = action.payload.total_pages;
-                state.oneMovie = null;
                 state.errors = null;
             })
             .addDefaultCase((state, action) => {
                 const [type] = action.type.split('/').splice(-1);
-
                 if (type === 'rejected') {
                     state.errors = action.payload;
                 } else {
                     state.errors = null;
                 }
+
             })
 });
 
-const {reducer: movieReducer, actions: {filterByGenre, searchName}} = movieSlice;
+const {reducer: movieReducer, actions: {filterByGenre, searchName, setCountry}} = movieSlice;
 
 const movieActions = {
     getAll,
     getOne,
     getByName,
     filterByGenre,
-    searchName
+    searchName,
+    setCountry
 };
 
 export {

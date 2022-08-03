@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 import {movieActions} from "../../redux";
 
@@ -10,7 +11,7 @@ const Genre = ({genre, id}) => {
 
     const dispatch = useDispatch();
 
-    const filter = () => {
+    const chooseGenre = () => {
         const strId = id.toString();
         const arrGenre = genreId.split(',');
         const findIndex = arrGenre.indexOf(strId);
@@ -18,7 +19,6 @@ const Genre = ({genre, id}) => {
         if (findIndex === -1) {
             arrGenre.push(strId);
             dispatch(movieActions.filterByGenre({id: arrGenre.join(',')}));
-
             setGenreOn('red')
         } else {
             arrGenre.splice(findIndex, 1)
@@ -27,11 +27,10 @@ const Genre = ({genre, id}) => {
         }
     };
 
-
     return (
-        <div id={id} onClick={filter} style={{color: genreOn}}>
+        <Dropdown.Item onClick={chooseGenre} style={{color: genreOn}}>
             {genre.name}
-        </div>
+        </Dropdown.Item>
     );
 };
 

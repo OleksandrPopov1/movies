@@ -8,7 +8,7 @@
     padding: 2% 5% 1%;
 }
 
-.headerBlock  a {
+.ownTitleBlock > a {
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -16,8 +16,7 @@
     transition: 300ms;
 }
 
-.headerBlock > .filtersBlock > button,
-.searchBlock> button{
+.searchBlock > button {
     padding: 0;
     border: none;
     font: inherit;
@@ -26,64 +25,31 @@
     transition: 300ms;
 }
 
-
-.genresBlock {
-    display: none;
-    flex-wrap: wrap;
-    position: absolute;
-    right: 43%;
-    width: 25%;
-    z-index: 5;
-}
-
-.genresBlock > div {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-
-    background-color: #083c70;
-    box-sizing: border-box;
-    border-radius: 25px;
-
-    padding: 4%;
-    margin-top: 3%;
-}
-
-.genresBlock > div > div {
-    font-size: 14px;
-
-    width: 33.3%;
-    margin-top: 1%;
-
-    color: #c281ae;
-    transition: 200ms;
-
-}
-
-
-.headerBlock > .filtersBlock > button:hover,
-.headerBlock  a:hover{
+.ownTitleBlock > a:hover {
     transform: scale(1.2);
     cursor: pointer;
 }
 
-.genresBlock > div > div:hover{
-    color: red;
-    cursor: pointer;
-}
-
-.searchBlock img{
-
+.searchBlock img {
     width: 20px;
 }
-.searchBlock> button{
+
+.searchBlock > button {
     position: relative;
     right: 11%;
     bottom: 5%;
 }
 
-.rightHeader{
+.rightHeader {
     display: flex;
+}
+
+.sortBlock {
+    display: flex;
+}
+
+.sortBlock > div {
+    margin-right: 10px;
 }
 
 

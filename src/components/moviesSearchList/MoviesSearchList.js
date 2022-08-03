@@ -1,20 +1,18 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 
-import css from './movieList.module.css';
+import css from './movieSearchList.module.css';
 import {movieActions} from "../../redux";
 import {MovieInfo} from "../movieInfo/MovieInfo";
 
+const MoviesSearchList = ({query}) => {
+    const {movies, searchMovie} = useSelector(state => state.movie);
 
-const MoviesList = ({query}) => {
-
-    const {movies, genreId, country} = useSelector(state => state.movie);
     const dispatch = useDispatch();
 
-
     useEffect(() => {
-        dispatch(movieActions.getAll({page: query.get('page'), withGenres: `${genreId}`, region: country}));
-    }, [dispatch, query, genreId, country]);
+        dispatch(movieActions.getByName({name: searchMovie, page: query.get('page')}));
+    }, [dispatch, query, searchMovie]);
 
     return (
         <div className={css.movieList}>
@@ -24,6 +22,5 @@ const MoviesList = ({query}) => {
 };
 
 export {
-    MoviesList
+    MoviesSearchList
 };
-
