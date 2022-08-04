@@ -18,7 +18,7 @@ const PaginationMovie = ({actualPage, setQuery}) => {
     };
 
     return (
-        <div className={css.paginationBlock}>
+        <div className={css.paginationBlock + ' veryDark'}>
             <Pagination>
                 {(actualPage - 10 >= 1) && <Pagination.First onClick={() => prevPage(actualPage - 1)}/>}
                 {(actualPage - 1 >= 1) && <Pagination.Prev onClick={() => prevPage(2)}/>}

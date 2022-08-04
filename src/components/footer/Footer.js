@@ -4,7 +4,7 @@ import './footer.css';
 
 export const Footer = () => {
     return (
-        <CDBFooter className="shadow">
+        <CDBFooter className="shadow mediumDark">
             <CDBBox
                 display="flex"
                 justifyContent="between"
@@ -19,7 +19,7 @@ export const Footer = () => {
                             src="https://lh4.googleusercontent.com/-lHW1NSDlcNE/AAAAAAAAAAI/AAAAAAAAAAA/p-_qKM4PDIM/s66-p-k-no-ns-nd/photo.jpg"
                             width="30px"
                         />
-                        <span className="ml-4 h5 mb-0 font-weight-bold"> Movies</span>
+                        <div className="ml-4 h5 mb-0 font-weight-bold mediumDark"> Movies</div>
                     </a>
                 </CDBBox>
                 <CDBBox>

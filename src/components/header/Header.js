@@ -1,12 +1,10 @@
-import {NavLink, useNavigate} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {useState} from "react";
 
 import css from './header.module.css';
 import {movieActions} from "../../redux";
 import {Genres} from "../genres/Genres";
 import {UserInfo} from "../userInfo/UserInfo";
-import {ThemeContext} from "../../theme";
 import {SwitchButtonCustom} from "../switchButtonCustom/SwitchButtonCustom";
 import {Countries} from "../countries/Countries";
 import {SearchInput} from "../searchInput/SearchInput";
@@ -21,13 +19,10 @@ const Header = () => {
     };
 
     return (
-        <div className={css.headerBlock}>
+        <div className={css.headerBlock + ' veryDark'}>
             <div className={css.ownTitleBlock}>
                 <NavLink to={'allMovie'} onClick={resetFilter}>All Movie</NavLink>
-
-                <ThemeContext.Consumer>
-                    {({changeTheme}) => (<SwitchButtonCustom changeTheme={changeTheme}/>)}
-                </ThemeContext.Consumer>
+                <SwitchButtonCustom/>
             </div>
 
             <div className={css.sortBlock}>

@@ -1,27 +1,28 @@
-.carouselBlock{
+.carouselBlock {
     position: absolute;
     width: 15%;
-    top: 50%;
+    top: 43%;
     left: 75%;
     background-color: white;
     color: black;
 
 }
 
-.carouselBlock> p{
+.carouselTitle {
     font-weight: bold;
     margin-top: 5%;
+    margin-left: 8%;
     text-align: center;
 }
 
-.carousel-item > div{
+.carousel-item > div {
     width: 100%;
 }
 
-.carousel-item > div div{
+.carousel-item > div div {
     font-size: 10px;
 }
 
-.carousel-item > div:hover{
+.carousel-item > div:hover {
     transform: scale(0.9);
 }

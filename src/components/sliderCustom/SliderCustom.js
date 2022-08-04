@@ -9,21 +9,21 @@ const SliderCustom = ({movieId}) => {
 
     const [recommendMovies, setRecommendMovies] = useState([]);
 
-    useEffect(()=>{
-        moviesService.getRecommendationsFilms(movieId).then(({data})=> setRecommendMovies(data.results));
+    useEffect(() => {
+        moviesService.getRecommendationsFilms(movieId).then(({data}) => setRecommendMovies(data.results));
     }, [movieId])
 
     return (
-        <div className={'carouselBlock'}>
-            <p>Recommend Movie</p>
+        <div className={'carouselBlock veryDark'}>
+            {recommendMovies[0] && <p className={'carouselTitle'}>Recommend Movie</p>}
 
             <Carousel>
-            {recommendMovies.map(movie => {
-                return <Carousel.Item key={movie.id}>
-                    <MovieInfo key={movie.id} movie={movie}/>
-                </Carousel.Item>
-            })}
-        </Carousel></div>
+                {recommendMovies.map(movie => {
+                    return <Carousel.Item key={movie.id}>
+                        <MovieInfo key={movie.id} movie={movie}/>
+                    </Carousel.Item>
+                })}
+            </Carousel></div>
     );
 };
 

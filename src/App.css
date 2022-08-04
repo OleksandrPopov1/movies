@@ -37,32 +37,35 @@
   }
 }
 
-
-body,
-.white-content .header_headerBlock__z6EWC,
-.white-content .paginationMovie_paginationBlock__UYsyd,
-.white-content .header_genresBlock__AETiC div,
-.white-content .movieInfo_MoviesListCardBlock__1as5p,
-.white-content .movieInfo_titleMovie__vjqlW,
-.white-content .carouselBlock,
-.white-content .dropdown div{
-  background: black;
+.Container-dark .veryDark{
+  background-color: #000;
   color: white;
 }
 
-.white-content .movieList_movieList__A9msP,
-.white-content .movieSearchList_movieList__rL5Kg,
-.white-content .shadow{
-  background: #363131;
-}
-
-.white-content .userInfo_userSettingsBlock__2SwOF{
-  background: #110e0e;
-}
-
-.white-content .dropdown div a,
-.white-content .shadow{
+.Container-dark .mediumDark{
+  background-color: #171515;
   color: white;
 }
 
+.Container-dark .lowDark{
+  background-color: #2c2727;
+  color: white;
+}
 
+.Container-dark .buttonDark{
+  background-color: #04305b;
+  color: white;
+  border: 1px solid #04305b;
+}
+
+.Container-dark .buttonDark:hover{
+  background-color: #0e4680;
+  color: white;
+  border: 1px solid #0e4680;
+}
+
+.Container-dark .buttonDark:focus{
+  background-color: #04305b;
+  color: white;
+  border: 1px solid #04305b;
+}

@@ -17,7 +17,7 @@ const UserInfo = () => {
             />
             <p>User Name</p>
 
-            {showStatus && <div className={css.userSettingsBlock}>
+            {showStatus && <div className={css.userSettingsBlock + ' lowDark'}>
                 <div className={css.topSettingBlock}>
                     <b>User_Name</b>
                     <div className={css.viewBlock}>View profile</div>

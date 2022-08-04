@@ -38,7 +38,7 @@ const MoviesListCard = () => {
 
                         <p>{oneMovie.overview}</p>
 
-                        <div>
+                        <div className={css.footerInfoBlock}>
                             <div>
                                 Vote average: {oneMovie.vote_average} <br/>
                                 Vote count: {oneMovie.vote_count}
@@ -58,6 +58,7 @@ const MoviesListCard = () => {
                             </div>
 
                         </div>
+
                         <MovieTrailer movieId={oneMovie.id}/>
                         <SliderCustom movieId={movieId}/>
                     </div>

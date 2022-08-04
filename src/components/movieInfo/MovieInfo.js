@@ -12,9 +12,9 @@ const MovieInfo = ({movie}) => {
     const navigate = useNavigate();
 
     return (
-        <div className={css.MoviesListCardBlock} onClick={() => navigate('/movieDetails' + id)}>
+        <div className={css.MoviesListCardBlock + ' veryDark'} onClick={() => navigate('/movieDetails' + id)}>
             <PosterPreview posterImage={poster_path}/>
-            <div className={css.titleMovie}>{title}</div>
+            <div className={css.titleMovie + ' veryDark'}>{title}</div>
             <StarsRating movieRating={vote_average} allowHover={false} size={15} vote={false}/>
         </div>
     );

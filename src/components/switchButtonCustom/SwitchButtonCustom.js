@@ -1,16 +1,13 @@
-import {useState} from "react";
+import {useContext} from "react";
 
 import './switchButtonCustom.module.css';
-import {themes} from "../../theme";
+import {DarkModeContext} from "../../context";
 
-
-const SwitchButtonCustom = ({changeTheme}) => {
-
-    const [darkMode, setDarkMode] = useState(true);
+const SwitchButtonCustom = () => {
+const {toggleDarkMode} = useContext(DarkModeContext);
 
     const changeThemeClick = () => {
-        setDarkMode(!darkMode);
-        changeTheme(darkMode ? themes.light : themes.dark);
+        toggleDarkMode()
     }
 
     return (

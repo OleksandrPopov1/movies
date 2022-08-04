@@ -1,3 +1,11 @@
 .shadow{
     background-color: #61dafb;
 }
+
+.shadow a{
+    text-decoration: none;
+}
+
+.shadow img{
+    margin-right: 5%;
+}

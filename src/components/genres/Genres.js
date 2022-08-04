@@ -17,11 +17,11 @@ const Genres = () => {
 
     return (
         <Dropdown autoClose={'outside'}>
-            <Dropdown.Toggle variant="info" id="dropdown-basic" >
+            <Dropdown.Toggle variant="info" id="dropdown-basic" className={'buttonDark'} >
                 Genre
             </Dropdown.Toggle>
 
-            <Dropdown.Menu className={css.genreMenu}>
+            <Dropdown.Menu className={css.genreMenu + ' lowDark'}>
                 {genres.map(genre => <Genre key={genre.id} genre={genre} id={genre.id}/>)}
             </Dropdown.Menu>
         </Dropdown>

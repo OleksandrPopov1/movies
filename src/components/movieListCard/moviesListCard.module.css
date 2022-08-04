@@ -1,10 +1,9 @@
 .movieInfoImage{
     position: relative;
-
 }
 .movieInfoImage:after{
     content: '';
-    width: 100%;
+    width: 100vw;
     height: 116.5vh;
     /*height: 160vh;*/
     position: absolute;
@@ -17,18 +16,27 @@
     /*height: 100vh;*/
     width: 100%;
     position: absolute;
+    top: 0; left: 0;
 }
 
 .movieInfoBlock {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    height: 100vh;
+    align-items: flex-start;
+    height: 116.5vh;
 
     position: relative;
     color: white;
+
+    box-sizing: border-box;
     margin-left: 5%;
+    padding-bottom: 5%;
+}
+
+.movieInfoBlock div,
+.movieInfoBlock p{
+    text-align: left;
 }
 
 .movieInfoBlock  h2 {
@@ -38,6 +46,7 @@
     padding-top: 5%;
 }
 
+
 .companyImagesBlock {
     display: flex;
     align-items: center;
@@ -46,7 +55,7 @@
 
 .companyImagesBlock > img {
     display: block;
-    width: 3%;
+    width: 5%;
     height: 1%;
     margin-right: 2%;
 }

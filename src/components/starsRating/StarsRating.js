@@ -6,9 +6,8 @@ export default function StarsRating({movieRating, allowHover, size, vote}) {
 
     const handleRating = (rate) => {
         if (vote) {
-            console.log(1)
+            setRating(rate);
         }
-        setRating(rate);
     }
 
     return (

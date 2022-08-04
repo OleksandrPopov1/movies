@@ -17,7 +17,7 @@ const MoviesList = ({query}) => {
     }, [dispatch, query, genreId, country]);
 
     return (
-        <div className={css.movieList}>
+        <div className={css.movieList + ' mediumDark'}>
             {movies.map(movie => <MovieInfo key={movie.id} movie={movie}/>)}
         </div>
     );

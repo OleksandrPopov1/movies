@@ -28,7 +28,7 @@ const Genre = ({genre, id}) => {
     };
 
     return (
-        <Dropdown.Item onClick={chooseGenre} style={{color: genreOn}}>
+        <Dropdown.Item className={'lowDark'} onClick={chooseGenre} style={{color: genreOn}}>
             {genre.name}
         </Dropdown.Item>
     );

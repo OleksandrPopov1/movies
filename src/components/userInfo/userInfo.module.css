@@ -1,9 +1,5 @@
-.userInfoBlock{
-}
-
 .userInfoBlock > img{
     width: 3vw;
-    margin-left: 25%;
 }
 
 .userInfoBlock > img:hover{
@@ -27,6 +23,7 @@
 
     border-radius: 15px;
     z-index: 5;
+    text-align: left;
 }
 
 .userSettingsBlock > div {
