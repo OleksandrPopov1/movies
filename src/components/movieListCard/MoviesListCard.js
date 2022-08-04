@@ -22,7 +22,7 @@ const MoviesListCard = () => {
     }, [dispatch, movieId]);
 
     return (
-        <div>
+        <div className={css.mainBlock}>
             {oneMovie &&
                 <div>
                     <div className={css.movieInfoImage}>

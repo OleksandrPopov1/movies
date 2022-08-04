@@ -21,7 +21,8 @@ const MovieTrailer = ({movieId}) => {
 
     return (
         <div className={css.movieTrailerBlock}>
-            {videoId && <iframe width="300"
+            {videoId && <iframe title={'YouTube'}
+                                width="300"
                                 height="200"
                                 src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=https://example.com`}
             />}
