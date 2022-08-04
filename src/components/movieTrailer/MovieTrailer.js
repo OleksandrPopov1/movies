@@ -5,26 +5,26 @@ import {moviesService} from "../../services";
 
 const MovieTrailer = ({movieId}) => {
 
-    const [videoId, setVideoId] = useState(null);
+    const [trailer, setTrailer] = useState(null);
 
     useEffect(() => {
         moviesService.getVideoKey(movieId).then(({data}) => {
-            const res = data.results;
-            const res2 = res.find(value => value.type === 'Teaser' || value.type === 'Trailer');
-            if (res2) {
-                setVideoId(res2.key);
+            const videoArr = data.results;
+            const trailer = videoArr.find(value => value.type === 'Teaser' || value.type === 'Trailer');
+            if (trailer) {
+                setTrailer(trailer);
             } else {
-                setVideoId(null);
+                setTrailer(null);
             }
         })
-    }, [movieId, videoId]);
+    }, [movieId, trailer]);
 
     return (
         <div className={css.movieTrailerBlock}>
-            {videoId && <iframe title={'YouTube'}
+            {trailer && <iframe title={trailer.name}
                                 width="300"
                                 height="200"
-                                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=https://example.com`}
+                                src={`https://www.youtube.com/embed/${trailer.key}?autoplay=1&origin=https://example.com`}
             />}
         </div>
     );

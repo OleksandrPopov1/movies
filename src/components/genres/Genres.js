@@ -17,7 +17,7 @@ const Genres = () => {
 
     return (
         <Dropdown autoClose={'outside'}>
-            <Dropdown.Toggle variant="info" id="dropdown-basic" className={'buttonDark'} >
+            <Dropdown.Toggle variant="info" id="dropdown-basic" className={'buttonDark'}>
                 Genre
             </Dropdown.Toggle>
 

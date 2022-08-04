@@ -15,15 +15,18 @@ const SliderCustom = ({movieId}) => {
 
     return (
         <div className={'carouselBlock veryDark'}>
-            {recommendMovies[0] && <p className={'carouselTitle'}>Recommend Movie</p>}
+            {recommendMovies[0] && <div>
+                <p className={'carouselTitle'}>Recommend Movie</p>
 
-            <Carousel>
-                {recommendMovies.map(movie => {
-                    return <Carousel.Item key={movie.id}>
-                        <MovieInfo key={movie.id} movie={movie}/>
-                    </Carousel.Item>
-                })}
-            </Carousel></div>
+                <Carousel>
+                    {recommendMovies.map(movie => {
+                        return <Carousel.Item key={movie.id}>
+                            <MovieInfo key={movie.id} movie={movie}/>
+                        </Carousel.Item>
+                    })}
+                </Carousel>
+            </div>}
+        </div>
     );
 };
 

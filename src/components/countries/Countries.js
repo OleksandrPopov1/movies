@@ -28,10 +28,10 @@ const Countries = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu className={css.genreMenu + ' lowDark'}>
-                {countries.map(country =>{
+                {countries.map(country => {
                     return <Dropdown.Item className={'lowDark'}
-                        key={country.iso_3166_1}
-                        onClick={() => chooseCountry(country.iso_3166_1)}>
+                                          key={country.iso_3166_1}
+                                          onClick={() => chooseCountry(country.iso_3166_1)}>
                         {country.english_name}
                     </Dropdown.Item>
                 })}

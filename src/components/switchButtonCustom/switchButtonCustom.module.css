@@ -1,5 +1,5 @@
 
-input[type=checkbox]{
+input[type=checkbox] {
     height: 0;
     width: 0;
     visibility: hidden;
@@ -41,7 +41,7 @@ label:active:after {
     width: 40px;
 }
 
-.switchButtonBlock{
+.switchButtonBlock {
     position: relative;
 }
 

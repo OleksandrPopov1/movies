@@ -4,7 +4,7 @@ import './switchButtonCustom.module.css';
 import {DarkModeContext} from "../../context";
 
 const SwitchButtonCustom = () => {
-const {toggleDarkMode} = useContext(DarkModeContext);
+    const {toggleDarkMode} = useContext(DarkModeContext);
 
     const changeThemeClick = () => {
         toggleDarkMode()

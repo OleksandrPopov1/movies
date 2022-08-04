@@ -10,7 +10,7 @@ export const Footer = () => {
                 justifyContent="between"
                 alignItems="center"
                 className="mx-auto py-4 flex-wrap"
-                style={{ width: '80%' }}
+                style={{width: '80%'}}
             >
                 <CDBBox display="flex" alignItems="center">
                     <a href="/" className="d-flex align-items-center p-0 text-dark">
@@ -27,13 +27,13 @@ export const Footer = () => {
                 </CDBBox>
                 <CDBBox display="flex">
                     <CDBBtn flat color="dark" className="p-2">
-                        <CDBIcon fab icon="facebook-f" />
+                        <CDBIcon fab icon="facebook-f"/>
                     </CDBBtn>
                     <CDBBtn flat color="dark" className="mx-3 p-2">
-                        <CDBIcon fab icon="twitter" />
+                        <CDBIcon fab icon="twitter"/>
                     </CDBBtn>
                     <CDBBtn flat color="dark" className="p-2">
-                        <CDBIcon fab icon="instagram" />
+                        <CDBIcon fab icon="instagram"/>
                     </CDBBtn>
                 </CDBBox>
             </CDBBox>

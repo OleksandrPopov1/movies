@@ -1,19 +1,19 @@
-.userInfoBlock > img{
+.userInfoBlock > img {
     width: 3vw;
 }
 
-.userInfoBlock > img:hover{
+.userInfoBlock > img:hover {
     box-sizing: border-box;
     border-radius: 25px;
     border: 2px solid red;
 }
 
-.userInfoBlock>p{
+.userInfoBlock > p {
     margin: 0;
     color: white;
 }
 
-.userSettingsBlock{
+.userSettingsBlock {
     position: absolute;
     background-color: white;
     width: 13%;
@@ -30,22 +30,22 @@
     padding: 4% 0 3% 10%;
 }
 
-.userSettingsBlock > div:hover{
+.userSettingsBlock > div:hover {
     cursor: pointer;
     background-color: #083c70;
     color: white;
     font-weight: bold;
 }
 
-.viewBlock{
+.viewBlock {
     margin-top: 3%;
     font-size: 12px;
 }
 
-.topSettingBlock{
+.topSettingBlock {
     border-radius: 15px 15px 0 0;
 }
 
-.bottomSettingBlock{
+.bottomSettingBlock {
     border-radius: 0 0 15px 15px;
 }
