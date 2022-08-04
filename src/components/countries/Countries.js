@@ -22,14 +22,16 @@ const Countries = () => {
     };
 
     return (
-        <Dropdown autoClose={'outside'}>
+        <Dropdown autoClose={true}>
             <Dropdown.Toggle variant="info" id="dropdown-basic" >
                 Country
             </Dropdown.Toggle>
 
             <Dropdown.Menu className={css.genreMenu}>
                 {countries.map(country =>{
-                    return <Dropdown.Item key={country.iso_3166_1} onClick={() => chooseCountry(country.iso_3166_1)}>
+                    return <Dropdown.Item
+                        key={country.iso_3166_1}
+                        onClick={() => chooseCountry(country.iso_3166_1)}>
                         {country.english_name}
                     </Dropdown.Item>
                 })}

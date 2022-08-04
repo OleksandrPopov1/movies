@@ -9,31 +9,11 @@ import {UserInfo} from "../userInfo/UserInfo";
 import {ThemeContext} from "../../theme";
 import {SwitchButtonCustom} from "../switchButtonCustom/SwitchButtonCustom";
 import {Countries} from "../countries/Countries";
+import {SearchInput} from "../searchInput/SearchInput";
 
 const Header = () => {
 
-    const [inputValue, setInputValue] = useState('');
-
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-
-    const change = e => {
-        setInputValue(e.target.value);
-    };
-
-    const search = () => {
-        if (inputValue) {
-            dispatch(movieActions.searchName(inputValue));
-            navigate('/movieSearch' + inputValue);
-            setInputValue('');
-        }
-    };
-
-    const keyPress = e => {
-        if (e.code === 'Enter') {
-            search();
-        }
-    }
 
     const resetFilter = () => {
         dispatch(movieActions.setCountry(''));
@@ -56,13 +36,7 @@ const Header = () => {
             </div>
 
             <div className={css.rightHeader}>
-                <div className={css.searchBlock}>
-                    <input type="text" onKeyPress={keyPress} value={inputValue} onChange={change}/>
-                    <button onClick={search}>
-                        <img src="https://cdn-icons-png.flaticon.com/512/751/751463.png" alt=""/>
-                    </button>
-                </div>
-
+                <SearchInput/>
                 <UserInfo/>
             </div>
         </div>

@@ -8,6 +8,7 @@ import {backgroundURL, noImageURL, posterURL} from "../../constants";
 import {GenreBadge} from "../genreBadge/GenreBadge";
 import StarsRating from "../starsRating/StarsRating";
 import {SliderCustom} from "../sliderCustom/SliderCustom";
+import {MovieTrailer} from "../movieTrailer/MovieTrailer";
 
 const MoviesListCard = () => {
 
@@ -57,7 +58,7 @@ const MoviesListCard = () => {
                             </div>
 
                         </div>
-
+                        <MovieTrailer movieId={oneMovie.id}/>
                         <SliderCustom movieId={movieId}/>
                     </div>
 

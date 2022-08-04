@@ -50,7 +50,9 @@ body,
   color: white;
 }
 
-.white-content .movieList_movieList__A9msP {
+.white-content .movieList_movieList__A9msP,
+.white-content .movieSearchList_movieList__rL5Kg,
+.white-content .shadow{
   background: #363131;
 }
 
@@ -58,7 +60,8 @@ body,
   background: #110e0e;
 }
 
-.white-content .dropdown div a{
+.white-content .dropdown div a,
+.white-content .shadow{
   color: white;
 }
 

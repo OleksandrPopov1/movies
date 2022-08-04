@@ -22,5 +22,10 @@ export * from './switchButtonCustom/SwitchButtonCustom';
 export * from './sliderCustom/SliderCustom';
 
 export * from './moviesSearchList/MoviesSearchList';
+export * from './searchInput/SearchInput';
 
 export * from './countries/Countries';
+
+export * from './movieTrailer/MovieTrailer';
+
+export * from './footer/Footer';

@@ -1,8 +1,8 @@
 .carouselBlock{
     position: absolute;
     width: 15%;
-    bottom: 1%;
-    left: 80%;
+    top: 50%;
+    left: 75%;
     background-color: white;
     color: black;
 

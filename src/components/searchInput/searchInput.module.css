@@ -1,0 +1,18 @@
+.searchBlock > button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: white;
+    background-color: transparent;
+    transition: 300ms;
+}
+
+.searchBlock img {
+    width: 20px;
+}
+
+.searchBlock > button {
+    position: relative;
+    right: 11%;
+    bottom: 5%;
+}

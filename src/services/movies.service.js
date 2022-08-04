@@ -18,5 +18,6 @@ export const moviesService = {
         }
     }),
     getOneById: (id) => axiosService.get(urls.movieById + '/' + id),
-    getRecommendationsFilms: (id) => axiosService.get(urls.movieById + `/${id}/recommendations`)
+    getRecommendationsFilms: (id) => axiosService.get(urls.movieById + `/${id}/recommendations`),
+    getVideoKey: (id) => axiosService.get(urls.movieById + `/${id}/videos`)
 };

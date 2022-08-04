@@ -16,28 +16,9 @@
     transition: 300ms;
 }
 
-.searchBlock > button {
-    padding: 0;
-    border: none;
-    font: inherit;
-    color: white;
-    background-color: transparent;
-    transition: 300ms;
-}
-
 .ownTitleBlock > a:hover {
     transform: scale(1.2);
     cursor: pointer;
-}
-
-.searchBlock img {
-    width: 20px;
-}
-
-.searchBlock > button {
-    position: relative;
-    right: 11%;
-    bottom: 5%;
 }
 
 .rightHeader {

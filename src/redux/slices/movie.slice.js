@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
-import { moviesService} from "../../services";
+import {moviesService} from "../../services";
 
 const initialState = {
     movies: [],
@@ -72,17 +72,13 @@ const movieSlice = createSlice({
                 } else {
                     state.maxPage = 500;
                 }
-
-                state.errors = null;
             })
             .addCase(getOne.fulfilled, (state, action) => {
                 state.oneMovie = action.payload;
-                state.errors = null;
             })
             .addCase(getByName.fulfilled, (state, action) => {
                 state.movies = action.payload.results;
                 state.maxPage = action.payload.total_pages;
-                state.errors = null;
             })
             .addDefaultCase((state, action) => {
                 const [type] = action.type.split('/').splice(-1);
@@ -91,7 +87,6 @@ const movieSlice = createSlice({
                 } else {
                     state.errors = null;
                 }
-
             })
 });
 
